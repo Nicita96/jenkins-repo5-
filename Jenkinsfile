@@ -2,11 +2,16 @@ pipeline {
     agent {
         docker {
             label "docker"
-            image "maven:3.8.4-jdk-11"
         }
     }
     
     stages {
+        agent {
+            docker {
+                label "docker"
+                image "maven:3.8.4-jdk-11"
+            }
+        }
         stage('Build') {
             steps {
               sh "mvn -version"
@@ -14,7 +19,6 @@ pipeline {
             }
         }
     }
-    
     post {
       always {
         cleanWs()
