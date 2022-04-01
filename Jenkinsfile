@@ -7,9 +7,9 @@ pipeline {
                 script {
                     def dockerHome = tool 'myDocker'
                     env.PATH = "${dockerHome}/bin:${env.PATH}"
-                    sh 'sudo newgroup docker'
-                    sh 'sudo chmod 666 /var/run/docker.sock'
-                    sh 'sudo usermod -aG docker ${USER}'                    
+                    sh 'newgroup docker'
+                    sh 'chmod 666 /var/run/docker.sock'
+                    sh 'usermod -aG docker ${USER}'                    
                     }
                 }
             }
