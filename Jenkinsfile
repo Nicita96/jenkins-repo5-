@@ -1,11 +1,9 @@
 pipeline {
-    agent {
-        docker { 
-            label 'docker'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
-            image 'centos' 
-        }
+    docker {
+        label 'docker'
+        args '-v /var/run/docker.sock:/var/run/docker.sock'
     }
+    
     stages {
         stage('Initialize'){
             steps {
