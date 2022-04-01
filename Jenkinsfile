@@ -3,12 +3,13 @@ pipeline {
     
     stages {
         stage('Initialize'){
-            steps {       
-                def dockerHome = tool 'myDocker'
-                env.PATH = "${dockerHome}/bin:${env.PATH}"
+            steps {
+                script {
+                    def dockerHome = tool 'myDocker'
+                    env.PATH = "${dockerHome}/bin:${env.PATH}"
+                }
             }
         }
-    }
     post {
         always {
         cleanWs()
