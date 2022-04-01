@@ -1,8 +1,5 @@
 pipeline {
-    agent {
-        label 'docker'
-        args '-v /var/run/docker.sock:/var/run/docker.sock'
-    }
+    agent { label 'docker' }
     
     stages {
         stage('Initialize'){
