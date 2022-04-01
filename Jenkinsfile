@@ -3,6 +3,7 @@ pipeline {
         docker { 
             label 'docker'
             args '-v /var/run/docker.sock:/var/run/docker.sock'
+            image 'centos' 
         }
     }
     stages {
