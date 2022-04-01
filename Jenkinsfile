@@ -1,22 +1,13 @@
 pipeline {
     agent {
-        label "docker"
+        docker { image 'node:16.13.1-alpine' }
     }
-    
     stages {
-        stage('Build') {
-            agent {
-                docker {
-                    label "docker"
-                    image "maven:3.8.4-jdk-11"
-                }
-            }
+        stage('Test') {
             steps {
-              sh "mvn -version"
-              sh "mvn clean install"
+                sh 'node --version'
             }
         }
-    }
     post {
       always {
         cleanWs()
