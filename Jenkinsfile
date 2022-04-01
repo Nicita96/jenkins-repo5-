@@ -13,8 +13,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'docker --version'
-                sh 'systemctl status docker'
-                sh 'docker run hello-world'
+                sh 'docker ps'
             }
         }
     }
