@@ -10,7 +10,12 @@ pipeline {
                     }
                 }
             }
+        stage('Test') {
+            steps {
+                sh 'node --version'
+            }
         }
+    }
     post {
         always {
         cleanWs()
