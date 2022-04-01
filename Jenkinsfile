@@ -7,7 +7,7 @@ pipeline {
                 script {
                     def dockerHome = tool 'myDocker'
                     env.PATH = "${dockerHome}/bin:${env.PATH}"
-                    sh 'newgroup docker'
+                    sh 'addgroup docker'
                     sh 'chmod 666 /var/run/docker.sock'
                     sh 'usermod -aG docker ${USER}'                    
                     }
