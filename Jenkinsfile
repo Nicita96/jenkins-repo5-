@@ -2,11 +2,9 @@ pipeline {
     agent any 
     
     stages {
-        agent {
-            docker { 
-                image 'node:16.13.1-alpine'
-                label 'docker'
-            }
+        docker { 
+            image 'node:16.13.1-alpine'
+            label 'docker'
         }
         stage('Initialize'){
             def dockerHome = tool 'myDocker'
