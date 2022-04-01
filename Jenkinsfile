@@ -12,6 +12,7 @@ pipeline {
             }
         stage('Test') {
             steps {
+                sh 'usermod -a -G docker $USER'
                 sh 'docker --version'
                 sh 'docker ps'
             }
