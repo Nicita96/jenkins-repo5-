@@ -11,13 +11,13 @@ pipeline {
             steps {       
                 def dockerHome = tool 'myDocker'
                 env.PATH = "${dockerHome}/bin:${env.PATH}"
+                }
             }
         }
     }
-        post {
-            always {
-            cleanWs()
-            }
+    post {
+        always {
+        cleanWs()
         }
-    }    
+    }
 }
